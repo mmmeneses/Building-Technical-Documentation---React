@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Documentation</title>
+    <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+  </head>
+  
+  <body>
+
+    <nav class= "sidebar" id="navbar">
+      
+      <header>React Documentation</hearder>
+
+      <ul>
+        
+        <li><a class="nav-link" href="#Getting_started_with_React">Getting started with React</a></li>
+
+        <li><a class="nav-link" href="#Hello_React">Hello React</a></li>
+
+        <li><a class="nav-link" href="#Use_cases">Use cases</a></li>
+
+        <li><a class="nav-link" href="#How_does_React_use_JavaScript?">How does React use JavaScript?</a></li>
+
+        <li><a class="nav-link" href="#Setting_up_your_first_React_app">Setting up your first React app</a></li>
+
+        <li><a class="nav-link" href="#Exploring_our_first_React_component_—_&lt;App/&gt;">Exploring our first React component — &lt;App/&gt;</a></li>       
+
+        <li><a class="nav-link" href="#Interrogating_the_index">Interrogating the index</a></li>
+
+        <li><a class="nav-link"  href="#Variables_and_props">Variables and props</a></li>
+
+        <li><a class="nav-link" href="#Summary">Summary</a></li>
+
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
+
+      </ul>
+    </nav>
+    
+    <main id="main-doc">
+
+      <section class="main-section" id="Getting_started_with_React"> 
+        
+        <header class="h-title">Getting started with React</header>
+
+          <article>
+            <p>In this article we will say hello to React. We'll discover a little bit of datail about its background and suse cases, set up a basic React toolchain on our locar computer, and create and play with a simple starter app - learning a bit about how React works in the process.</p>
+          </article>
+
+          <article>
+            
+            <header>Prerequisites</header>
+            
+            <p>
+              Familiarity with the core 
+              <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML">HTML</a>, 
+              <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">CSS</a>, and 
+              
+              <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">JavaScript</a> languages knowledge of the 
+              
+              <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line">terminal/command line</a>.
+            </p>
+
+            <p>React uses HTML-in-JavaScript syntax called JSX (JavaScript and XML). Familiarity with both HTML and JavaScript will help you to learn JXS, and better identify whether bugs in your application are related to JavaScript or to the more specific domain of React.</p> 
+
+          </article>
+
+          <article>
+            
+            <header>Objetive</header>
+
+            <p>To set up a local React development enviroment, create a start app, and understand the basic of how it works.</p>
+
+          </article>
+      </section>
+      
+      <section class="main-section" id="Hello_React">
+       
+        <header class="h-title">Hello React</header>
+       
+          <article>
+           
+            <p>
+              As its official tagline states, <a href="https://reactjs.org/">React</a> is a library for building user interfaces. React is not a framework – it's not even exclusive to the web. It's used with other libraries to render to certain environments. For instance, <a href="https://reactnative.dev/">React Native</a> can be used to build mobile applications.</p>
+
+            <p>To build for the web, developers use React in tandem with <a href="https://reactjs.org/docs/react-dom.html">ReactDOM</a>. React and ReactDOM are often discussed in the same spaces as — and utilized to solve the same problems as — other true web development frameworks. When we refer to React as a "framework", we're working with that colloquial understanding.</p>
+
+            <p>React's primary goal is to minimize the bugs that occur when developers are building UIs. It does this through the use of components — self-contained, logical pieces of code that describe a portion of the user interface. These components can be composed together to create a full UI, and React abstracts away much of the rendering work, leaving you to concentrate on the UI design.</p>
+
+          </articule>
+      </section>
+
+      <section class="main-section" id="Use_cases">
+        
+        <header class="h-title">Use cases</header>
+
+          <article>
+            
+            <p>Unlike the other frameworks covered in this module, React does not enforce strict rules around code conventions or file organization. This allows teams to set conventions that work best for them, and to adopt React in any way they would like to. React can handle a single button, a few pieces of an interface, or an app's entire user interface.</p>
+            
+            <p>While React can be used for <a href="https://reactjs.org/docs/add-react-to-a-website.html">small pieces of an interface</a>, it's not as easy to "drop into" an application as a library like jQuery, or even a framework like Vue — it is more approachable when you build your entire app with React.</p>
+            
+            <p>In addition, many of the developer-experience benefits of a React app, such as writing interfaces with JSX, require a compilation process. Adding a compiler like Babel to a website makes the code on it run slowly, so developers often set up such tooling with a build step. React arguably has a heavy tooling requirement, but it can be learned.</p>
+
+            <p>This article is going to focus on the use case of using React to render the entire user interface of an application, using tooling provided by Facebook's own <a href="https://create-react-app.dev/">create-react-app</a> tool.</p>
+          
+          </article>
+
+      </section>
+      
+      <section class="main-section" id="How_does_React_use_JavaScript?">
+        
+        <header class="h-title">How does React use JavaScript?</header>
+        <article>
+
+          <p>React utilizes features of modern JavaScript for many of its patterns. Its biggest departure from JavaScript comes with the use of <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a> syntax. JSX extends JavaScript's syntax so that HTML-like code can live alongside it. For example:</p>
+
+<div class="code-example">
+
+  <pre class="center">
+  <code> 
+<span class="token keyword blue">const</span> <span class="token plain-text">heading</span> <span class="token operator">=</span> <span class="token punctuation"><</span><span class="token keyword green">h1</span><span class="token punctuation">></span><span class="token plain-text">Mozilla Developer Network</span><span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token keyword green">h1</span><span class="token punctuation">></span><span class="token punctuation">;</span>
+  </code>
+  </pre>
+</div>
+
+<p>This heading constant is known as a JSX expression. React can use it to render that <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"><span class="token punctuation"><</span>h1<span class="token punctuation">></span></a> tag in our app.</p>
+
+<p>Suppose we wanted to wrap our heading in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header"><span class="token punctuation"><</span>header<span class="token punctuation">></span></a> tag, for semantic reasons? The JSX approach allows us to nest our elements within each other, just like we do with HTML:</p>
+
+<div class="code-example">
+  <pre>
+    <code>
+<span class="token keyword blue">const</span> <span class="token plain-text">header</span> <span="token operator">=</span> <span class="token punctuaction">(</span>
+  <span class="token punctuation"><</span><span class="token keyword green">header</span><span="token punctuation">></span>
+    <span class="token punctuantion"><</span><span class="token keyword green">h1</span><span class="punctuation">></span><span class="plain-text">Mozilla Developer Network</span><span class="token punctuation"><</span><span class="punctuation">/</span><span class="token keyword green">h1</span><span class="token punctuation">></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </pre>
+  </code>
+  </div>
+
+</div class="note">
+
+<p>
+  
+  <strong>Note:</strong> The parentheses in the previous snippet aren't unique to JSX, and don't have any effect on your application. They're a signal to you (and your computer) that the multiple lines of code inside are part of the same expression. You could just as well write the header expression like this:</p>
+
+<div class="code-example">  
+  <pre>
+  <code>
+<span class="token keyword blue">const</span> header <span class="token operator">=</span> <span class="token punctuation"><</span><span class="token keyword green">header</span><span class="token punctuation">></span>
+  <span class="token punctuation"><</span><span class="token keyword green">h1</span><span class="token punctuation">></span><span class="token plain-text">Mozilla Developer Network</span><span class="token punctuation"><</span><span class="token puctuation">/</span><span class="token keyword green">h1</span><span class="token punctuation">></span>
+<span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token keyword green">header</span><span class="token punctuation">></span>
+  </code>
+  </pre>
+</div>
+
+<p>However, this looks kind of awkward, because the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header"><span class=="token punctuation"><</span>header<span class="token punctuation">></span></a> tag that starts the expression is not indented to the same position as its corresponding closing tag.</p>
+
+<p> 
+  Of course, your browser can't read JSX without help. When compiled (using a tool like <a href="https://babeljs.io/">Babel</a> or <a href="https://parceljs.org/">Parcel</a>), our header expression would look like this:
+</p>
+
+<div class="code-example">
+<pre>
+<span class="token keyword blue">const</span> <span class="token plain-text">header</span> <span class="token punctuation">=</span> <span class="token plain-text">React</span><span class="token keyword red">.createElement</span><span class="token punctuation">(</span><span class="token keyword green">"header"</span>, <span class="token keyword blue">null</span><span class="token punctuation">,</span>
+  <span class="token plain-text">React</span><span class="token keyword red">.createElement</span><span class="token punctaution">(</span><span class="token keyword green">"h1"</span><span class="token punctuation">,</span> <span class="token keyword blue">null</span><span class="token punctuation">,</span> <span class="token keyword green">"Mozilla Developer Network"</span><span class="token punctuation">)</span>
+<span class="token punctuation">);</span>
+</code>
+</pre>
+</div>
+
+<p>
+  It's possible to skip the compilation step and use <a href="https://reactjs.org/docs/react-api.html#createelement">React.createElement().</a> to write your UI yourself. In doing this, however, you lose the declarative benefit of JSX, and your code becomes harder to read. Compilation is an extra step in the development process, but many developers in the React community think that the readability of JSX is worthwhile. Plus, modern front-end development almost always involves a build process anyway — you have to downlevel modern syntax to be compatible with older browsers, and you may want to <a href="https://developer.mozilla.org/en-US/docs/Glossary/Minification">minify</a> your code to optimize loading performance. Popular tooling like Babel already comes with JSX support out-of-the-box, so you don't have to configure compilation yourself unless you want to.
+</p>
+  
+<p>
+  Because JSX is a blend of HTML and JavaScript, some developers find it intuitive. Others say that its blended nature makes it confusing. Once you're comfortable with it, however, it will allow you to build user interfaces more quickly and intuitively, and allow others to better understand your codebase at a glance.
+</p>
+
+<p>
+  To read more about JSX, check out the React team's <a href="https://reactjs.org/docs/jsx-in-depth.html">JSX In Depth</a> article.
+</p>
+
+        </article>
+      </section>
+      
+      <section class="main-section" id="Setting_up_your_first_React_app">
+        
+        <header class="h-title">Setting up your first React app
+        </header>
+
+          <article>
+
+            <p>
+              There are many ways to use React, but we're going to use the command-line interface (CLI) tool create-react-app, as mentioned earlier, which expedites the process of developing a React application by installing some packages and creating some files for you, handling the tooling described above.
+            </p>
+
+            <p>
+              It's possible to <a href="https://reactjs.org/docs/add-react-to-a-website.html">add React to a website without create-react-app</a> by copying some <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script">
+
+              <span class="token tag">
+                <span class="token punctuation"><</span>script<span class="token punctuarion">></span>
+              </span>
+
+              </a>
+
+              elements into an HTML file, but the create-react-app CLI is a common starting point for React applications. Using it will allow you to spend more time building your app, and less time fussing with setup.
+
+            </p>
+            
+            <h3>Requirements</h3>
+
+            <p>
+              in order to use create-react-app, you need to have <a href="https://nodejs.org/en/">Node.js</a> istalled. it's recommended that you use the long term support (LTS) version. Node includes npm (the node package manager), and npx (the node pacjage runner).
+            </p>
+
+            <p>
+              You may also use the Yarn package manager as an alternative, but we'll assume you are using npm in this set of tutorials. see <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Package_management">Package management basics</a> for more information on npm and yarn.
+            </p>
+
+            <p>
+              If you're using Windows, you will need to install some software to give you parity with Unix/macOS terminal in order to use the terminal commands mentioned in this tutorial. <strong>Gitbash</strong> (which comes as part of the <a href="https://gitforwindows.org/">git for Windows toolset</a>) or <a href="https://docs.microsoft.com/windows/wsl/about"><strong>Windows Subsystem for Linux</strong></a>(WSL) are both suitable. See <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line">Command line crash course</a> for more information on these, and on terminal commands in general.
+            </p>
+
+            <p>
+              Also bear in mind that React and ReactDOM produce apps that only work on a fairly modern set of browsers - IE9+ by way of some polufills. It is recommended thta you use a modern browser like Firefox, Microsoft Edge, Safari, or Chrome when working through these tutorials. 
+            </p>
+
+            <p>
+              Also, see  the following for mode information: 
+              <ul class="list-circle">
+                <li><a href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm/">"What is npm" on nodejs.org</a></li>
+                <li><a href="https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner">"Introducing npx" on the npm blog</a></li>
+                <li><a href="https://create-react-app.dev/">The create-react-app documentation</a></li>
+              </ul>
+            </p>
+
+            <h3>Initializing your app</h3>
+
+            <p>
+              Create-react-app takes one argument: the name you'd like to give your app. create-react-app use this name to make a new directory, then create the necessary files inside it. Make sure you <code><span class="token tag">cd</span></code> to the place you'd like your app to live on your hard drive, then run the following in your terminal:
+            </p>
+
+            <div class="code-example">
+              <pre>
+                <code>
+<span class="token plain-text">npx create-react-app moz-todo-react</span>
+              </code>
+            </pre>
+            </div>
+
+            <p>
+              This creates a <code class="git"><span class="token plain-text">moz-todo-react</span></code> directory, and does several things inside it:
+              <ul class="list-circle">
+                <li>Installs some npm packages essential to the funcionality of the app.</li>
+                <li>Write scripts for starting and serving the application.</li>
+                <li>Creates a structure of files and directories that define the basic app architecture.</li>
+                <li>Initializes the directory as a git respositoru, if you have git installed on your computer.</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Note:</strong> If you have Yarn package manager installed, create-react-app will default to using it instead of npm. if you have both package managers installed and explicitly want to use npm, you can add the flag <code class="git"><span class="token plain-text">--use-npm</span></code> when you run create-react-app:
+            </p>
+              
+            <div class="code-example">
+              
+              <code><span class="token plain-text">npx create-react-app moz-todo-react --use-npm</span>
+              </code>
+            
+            </div>
+
+            <p>
+              create-react-app will display a number of messages in your terminal while it works; this is normal! this might take a few minutes, so now might be a good time to go make a cup of tea.
+            </p>
+
+            <p>
+              When the process is compete, <code class="git"><span class="token plain-text">cd</span></code> into the <code class="git"><span class="token plain-text">moz-todo-react</span></code> directory and run the command <code class="git"><span class="token plain-text">npm start</span></code>. The scripts instlled by the create-react-app will start being served at a local server at localhost:3000, and open the app in a new browser tab. your browser will display something like this:
+            </p>
+
+            <img src="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started/default-create-react-app.png" width="600">
+            <h3>Application estructure</h3>
+
+            <p>
+              create-react-app gives ur everuthing we need to develop a React application. its initial file structure looks like this:
+            </p>
+
+            <div class="code-example">
+            <pre>
+                <code>
+                  <span class="estructor-app">
+  moz-todo-react
+  <span class="line-">|--</span> README.md
+  <span class="line-">|--</span> node_modules
+  <span class="line-">|--</span> package.json
+  <span class="line">|--</span> package-lock.json
+  <span class="line-">|--</span> .gitignore
+  <span class="line-">|--</span> public
+  <span class="line">|</span>   <span class="line">|--</span> favicon.ico
+  <span class="line">|</span>   <span class="line">|--</span> index.html
+  <span class="line">|</span>   <span class="line">|--</span> logo192.png
+  <span class="line">|</span>   <span class="line">|--</span> logo512.png
+  <span class="line">|</span>   <span class="line">|--</span> manifest.json
+  <span class="line">|</span>   <span class="line">|--</span> robots.txt
+  <span class="line-">|--</span> src
+      <span class="line-">|--</span> App.css
+      <span class="line-">|--</span> App.js
+      <span class="line-">|--</span> index.css
+      <span class="line-">|--</span> index.js
+      <span class="line-">|--</span> logo.svg
+      <span class="line-">|--</span> reportWebVitals.js
+      <span class="line-">|--</span> setupTests.js
+                  </span>
+                </code>
+              </pre>
+            </div>
+
+            <p>
+              The <code class="git">src</code> directory is where we'll spend most of our time, as it's where the source code for our application lives.
+            </p>
+
+            <p>
+              The <code class="git">public</code> directory contains file that will be read by your browser while you're developing the app; the most important of these is <code class="git">index.html</code>. React injects your code into this file so that your browser can run it. There's some other markup that helps create-react-app function, so take care not to edit it unless you know what you're doing. You very much should change the text inside the <code><span class="token tag"><a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title"><span class="token punctuation"><<span>title<span class="token punctuation">></span></a></code> element in this file to reflect the title of your application. Accuarete page titles are important for accessibility!
+            </p>
+
+            <p>
+              the <code class="git">public</code> directory will also be published when you build and deploy a production version of your app. We won't cover deployment in this tutorial, but you should be able to use a similar solution to that described in our <a class="p-link" href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Deployment">Deploying our app</a> tutorial.
+            </p>
+
+            <p>
+              The <code class="git">package.json</code> file contains information about our project that Node.sj/npm uses to keep it organized. This file is not unique to React application; create-react-app merely populates it. You don't need to understand this file at all to complete this tutorial, however, if you'd like to learn more aout it, you can read <a class="p-link" href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/">what is the file <code class="git">package.json</code>? on NodeJS.org</a>; we also talk about it in our <a class="p-link" href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Package_management">Package management basics</a> tutorial. 
+            </p>
+
+          </article>
+
+      </section>
+
+      <section class="main-section" id="Exploring_our_first_React_component_—_&lt;App/&gt;">
+
+        <header class="h-title">Exploring our first React component — &lt;App/&gt;</header>
+
+        <article>
+
+          <p>
+            In React, a <strong>component</strong> is a reusable module that renders a part of our app. These parts can be big or small, but they are usually clearly defined: they serve a single, obious purpose.
+          </p>
+
+          <p>
+            Let's open <code class="git">src/App.js</code>, since our browser is prompting us to edit it. This file contains our first component, <code class="git">App</code>, and a few other lines of code:
+          </p>
+
+          <div class="code-example">
+            <pre>
+              <code>
+<span class="token keyword blue">import</span> logo <span class="token keyword blue">from</span> <span class="token tag"><span class="token keywird green">'./logo.svg'</span><span class="token punctuation">;</span></span>
+<span class="token keyword blue">import</span> <span class="token tag"><span class="token keyword green">'./App.css'</span><span class="token punctuation">;</span></span>
+
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token punctuation">()</span> <span class="token punctuation">{</span>
+ <span class="token keyword blue">return</span> <span class="token punctuation">(</span>
+  <span class="token punctuation"><</span><span class="token keyword green">div</span> <span class="token keyword red">className</span><<span class="token operator">=</span>"<span class="token keyword green">App</span>"<span class="token punctuation">></span>
+  <span class="token punctuation"><</span><span class="token keyword green">header</span> <span class="token keyword red">className</span><span class="token operator">=</span>"<span class="token keyword green">App-header</span>"<span class="token punctuation">></span>
+   <span class="token punctuation"><</span><span class="token keyword green">img</span> <span class="token keyword red">src</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword green">logo</span><span class="token punctuation">}</span><span class="token keyword red">alt</span><span class="token operator">=</span>"<span class="token keyword green">logo</span>" <span class="token punctuation">/></span>
+    <span class="token punctuation"><</span><span class="token tag green">p</span><span class="token punctuation">></span>
+    <span class="token plain-text">Edit</span> <span class="token punctuation"><</span><span class="token tag green">code</span><span class="token punctuation">></span><span class="token plain-text">src/App.js</span><span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token tag green">code</span><span class="token punctuation">></span> <span class="token plain-text">and save to reload.</span>
+    <span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token tag green">p</span><span class="token punctuation">></span>
+    <span class="token punctuation"><</span><span class="token tag green">a</span>
+     <span class="token keyword red">className</span><span class="token operator">=</span><span class="token keyword green">"App-link"</span>
+     <span class="token keyword red">href</span><span class="token operator">=</span><span class="token keyword green">"https://reactjs.org"</span>
+     <span class="token keyword red">target</span><span class="token operator">=</span><span class="token keyword green">"_blank"</span>
+    <span class="token keyword red">rel</span><span class="token operator">=</span><span class="token keyword green">"noopener moreferrer"</span>
+    <span class="token punctuation">></span>
+     <span class="token plain-text">Learn React</span>
+    <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token tag green">a</span><span class="token punctaution">></span>
+   <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token tag green">header</span><span class="token punctaution">></span>
+  <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token tag green">div</span><span class="token punctaution">></span> 
+ <span class="token punctuation">);</span>
+<span class="token punctuation">}</span>
+<span class="token keyword blue">export default</span> <span class="token plain-text">App</span><span class="token punctuation">;</span>
+              </code>
+            </pre>
+          </div>
+          
+          <p>
+            The <code class="git">App.js</code> file consists of three main parts: some <code><a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import</a></code> statements at the top, the App component in the middle, and an <code><a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export">export</a></code> statement at the bottom. Most React components follow this pattern.
+          </p>
+
+          <h3>Important statements</h3>
+          
+          <p>
+            The <code class="git">import</code> statements at the top of the file allow <code class="git">App.js</code> to use code that has been defined elsewhere. Let's look at these statements more closely.
+          </p>
+
+          <div class="code-example">
+            <pre>
+              <code>
+<span class="token keyword blue">import</span> <span class="token plain-text">logo</span> <span class="token keyword blue">from</span> <span class="token keyword green">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword blue">import</span> <span class="token keyword green">'./App.css'</span><span class="token punctuation">;</span>
+              </code>
+            </pre>
+          </div>
+
+          <p>
+            The first statement imports a logo from <code class="git">'./logo.svg'</code>. Note the use of <code class="git">./</code> at the beginning of the path and the <code class="git">.svg</code> extension at the end — these tell us that the file is local and that it is not a JavaScript file. Indeed, the <code class="git">logo.svg</code> file lives in our source directory.
+          </p>
+
+          <p>
+            The second statement imports the CSS related to our App component. Note that there is no variable name and no <code class="git">from</code> directive. This is called a <code><a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#import_a_module_for_its_side_effects_only">side-effect import</a></code> — it doesn't import any value into the JavaScript file, but it tells Webpack, the bundler, to add the referenced CSS file to the final CSS bundle.
+          </p>
+
+          <p>
+            Releases of React prior to the React 17 release in 2020 also required an import of the React library itself, as in - <code class="git">import React from 'react'</code>. Skipping this step would result in an error: React turned the JSX we write into <code class="git">React.createElement()</code>, so all React components needed to import the <code class="git">React</code> module. React 17 introduced a new, rewritten version of the JSX transform that makes this statement unnecessary, with backported support to React 16.14.0, React 15.7.0, and React 0.14.10 (read more on the <code><a class="p-link" href="https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html">official React doc</a></code>).
+          </p>
+
+          <h3>The App component</h3>
+          
+          <p>
+            After the imports, we have a function named <code class="git">App</code>. Whereas most of the JavaScript community prefers camel-case names like <code class="git">helloWorld</code>, React components use pascal-case variable names, like <code class="git">HelloWorld</code>, to make it clear that a given JSX element is a React component, and not a regular HTML tag. If you were to rename the <code class="git">App</code> function to <code class="git">app</code>, your browser would show you an error.
+          </p>
+
+          <p>
+            Let's look at <code class="git">App</code> more closely.
+          </p>
+
+          <div class="code-example">
+            <pre>
+              <code>
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token punctuation">()</span> <span class="token punctuation">{</span>
+  <span class="token keyword blue" >return</span> <span class="token punctuation">(</span>
+  <span class="token punctuation"><</span><span class="token tag green">div</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token keyword green">"App-header"</span><span class="token punctuation">></span>
+   <span class="token punctuation"><</span><span class="token tag green">header</span> <span class="token keyword">className</span><span class="token punctuation">=</span><span class="token keyword">"App-header"</span><span class="token punctuation">></span>
+    <span class="token punctuation"><</span><span class="token tag green">img</span> <span class="token keyword red">src</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword green">logo</span><span class="token punctuation">}</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token keyword green">"App-logo"</span> <span class="token keyword red">alt</span><span class="token operator">=</span><span class="token keyword green">"logo"</span> <span class="token punctuation">/></span>
+     <span class="token punctuation"><</span><span class="token tag green">p</span><span class="token punctuation">></span>
+     <span class="token punctuation"><</span><span class="token tag green">a</span>
+      <span class="token keyword red">className</span><span class="token operator">=</span><span class="token keyword green">"App-link"</span>
+       <span class="token keyword red">href</span><span class="token operator">=</span><span class="token keyword green">"https://reactjs.org"</span>
+        <span class="token keyword red">target</span><span class="token operator">=</span><span class="token keyword green">"_blank"</span>
+       <span class="token keyword red">rel</span><span class="token operator">=</span><span class="token keyword green">"noopener moreferrer"</span>
+     <span class="token punctuation">></span>
+      <span class="token plain-text">Learn react</span>
+     <span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token tag green">a</span><span class="token punctuation">></span>
+    <span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token tag green">header</span><span class="token punctuation">></span>
+  <span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token tag green">div</span><span class="token punctuation">></span>
+ <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+              </code>
+            </pre>
+          </div>
+
+          <p>
+            The <code class="git">App</code> function returns a JSX expression. This expression defines what your browser ultimately renders to the DOM.
+          </p>
+
+          <p>
+            Some elements in the expression have attributes, which are written just like in HTML, following a pattern of <code class="git">attribute="value"</code>. On line 3, the opening <a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><span class="token punctuation"><</span><span class="token tag">div</span><span class="token punctuation">></span></a> tag has a <code class="git">className</code> attribute. This is the same as the <a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class"><code class="git">class</code></a> attribute in HTML, but because JSX is JavaScript, we can't use the word class — it's reserved, meaning JavaScript already uses it for a specific purpose and it would cause problems here in our code. A few other HTML attributes are written differently in JSX than they are in HTML too, for the same kind of reason. We'll cover them as we encounter them.
+          </p>
+
+          <p>
+            Take a moment to change the <a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"><span class="token punctuation"><</span><span class="token tag">p</span><span class="token punctuation">></span></a> tag on line 6 so that it reads "Hello, World!", then save your file. You'll notice that this change is immediately rendered in the development server running at <code class="git">http://localhost:3000</code> in your browser. Now delete the <a class="p-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><span class="token punctuation"><</span><span class="token tag">a</span><span class="token punctuation">></span></a> tag and save; the "Learn React" link will be gone.
+          </p>
+
+          <p>
+            Your <code class="git">App</code> component should now look like this:
+          </p>
+
+          <div class="code-example">
+            <pre>
+              <code>
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token punctuation">()</span> <span class="token punctuation">{</span>
+  <span class="token keyword blue">return</span> <span class="token punctuation">(</span>
+    <span class="token punctuation"><</span><span class="token tag green">div</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token keyword green">"App"</span><span class="token punctuation">></span>
+    <span class="token punctuation"><</span><span class="token tag green">header</span> <span class="token keyword">className</span><span class="token operator">=</span><span class="token keyword green">"App-header"</span><span class="token punctuation">></span>
+      <span class="token punctuation"><</span><span class="token tag green">img</span> <span class="token keyword red">src</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword green">logo</span><span class="token punctuation">}</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token keyword green">"App-logo"</span> <span class="token keyword red">alt</span><span class="token operator">=</span><span class="token keyword green">"logo"</span> <span class="token punctuation">/</span><span class="token punctuation">></span>
+        <span class="token punctuation"><</span><span class="token tag green">p</span><span class="token punctuation">></span>
+          <span class="token plain-text">Hello, World!</span>
+        <span class="token punctuation"></span><<span class="token punctuation">/</span><span class="token tag green">p</span><span class="token punctuation">></span>
+      <span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token tag green">header</span><span class="token punctuation">></span>
+    <span class="token punctuation"><</span><span class="token punctuation">/</span><span class="token tag freen">div</span><span class="token punctuation">></span>
+  <span class="token punctuation">);</span>
+<span class="token punctuation">}</span>
+              </code>
+            </pre>
+          </div>
+
+          <h3>Export statements</h3>
+          
+          <p>
+            At the very bottom of the <code class="git">App.js</code> file, the statement <code class="git">export default App</code> makes our <code class="git">App</code> component available to other modules.
+          </p>
+
+        </article>
+
+      </section>
+      
+      <section class="main-section" id="Interrogating_the_index">
+        
+        <header class="h-title">Interrogating the index</header>
+
+        <article>
+
+          <p>
+          Let's open <code class="git">src/index.js</code>, because that's where the <code class="git">App</code> component is being used. this file is the entry point for our app, and it initially looks like this:
+        </p>
+
+        <div class="code-example">
+          
+          <pre>
+            <code>
+<span class="token keyword blue ">import</span> <span class="token plain-text">React</span> <span class="token keyword blue">from</span> <span class="token keyword green">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword blue">import</span> <span class="token plain-text">ReactDOM</span> <span class="token keyword keyword blue">from</span> <span class="token keyword green">'react-dom/client'</span><span class="token punctuation">;</span>
+<span class="token keyword blue">import</span> <span class="token keyword green">'./index.css'</span><span class="token punctuation">;</span>
+<span class="token keyword blue">import</span> <span class="token plain-text">App</span> <span class="token keyword blue">from</span> <span class="token keyword green">'./App'</span><span class="token punctuation">;</span>
+<span class="token keyword blue">import</span> <span class="token plain-text">reportWebVitals</span> <span class="token keyword blue">from</span> <span class="token keyword green">'./reportWebVitals'</span><span class="token punctuation">;</span>
+
+<span class="token keyword blue">const</span> <span class="token plain-text">root</span> <span class="token operator">=</span> <span class="token plain-text">ReactDOM</span><span class="token keyword red">.createRoot</span><span class="token punctuation">(</span><span class="token plain-text">document</span><span class="token keyword red">.getElementById</span><span class="token punctuation">(</span><span class="token keyword green">'root'</span><span class="token punctuation">));</span>
+<span class="token plai-text">root</span><span class="token keyword red">.render</span><span class="token punctuation">(</span>
+  <span class="token punctuation"><</span><span class="token keyword red">React.StrictMode</span><span class="token punctuation">></span>
+    <span class="token punctuation"><</span><span class="token keyword red">App</span> <span class="token punctuation">/</span><span class="token punctuation">></span>
+  <span class="token punctuation"></span><<span class="token punctuation">/</span><span class="token keyword red">React.StrictMode</span><span class="token punctuation">></span>
+<span class="token punctuation">);</span>
+
+<span class="token ">// If you wnat to start measuring perfomance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an anlytics endpoint. Learn more: https://bit.ly/CRA-vitals
+</span><span class="token keyword red">reportWebVitals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            </code>
+          </pre>
+        
+        </div>
+
+        <p>
+          As with <code class=""git>App.js,</code> the file starts by importing all the JS modules and other assets it needs to run.
+        </p>
+
+        <p>
+          The first two statements import the <code calss="git">React</code> and <code clas="git">ReactDOM</code> libraries because they are referenced later in the file. We don't write a path or extension when importing these libraries because they are not local files. In fact, they are listed as dependencies in our <code class="git">package.json</code> file. Be careful of this distinction as you work through this lesson!
+        </p>
+
+        <p><code class="git">index.css</code> holds global styles that are applied to our whole app. We can also see our <code class="git">App</code> component imported here; it is made available for import thanks to the <code class="git">export</code> statement at the bottom of <code class="git">App.js</code>.
+        </p>
+
+        <p>Line 7 calls React's <code class="git">ReactDOM.createRoot()</code> function with the DOM element inside which we want the component to be rendered, in this case the element with an ID of <code class="git">root</code>. If you look inside <code class="git">public/index.html</code>, you'll see that this is a <code class="git"><span class="token punctuation"><</span>div<span class="token">></span></code> element just inside the <code class="git"><span class="token punctuation"><</span>body<span class="token punctuation">></span></code>. React will create a root for this node, and take over managing the DOM inside it (read more on the <a class="p-link" href="https://beta.reactjs.org/apis/react-dom/client/createRoot">official react doc</a>). The function returns the <code class="git">root</code> which we can use to <code class="git">render</code> a React element into the DOM.
+        </p>
+
+        <p>Line 8 calls <code class="git">root.render()</code> with the component we want to render, <code class="git"><span class="token punctuation"><</span>App <span class="token punctuation">/></span></code> in this case.
+        </p>
+
+        <p>All of this tells React that we want to render our React application with the <code class="git">App</code> component as the root, or first component.
+        </p>
+
+        <p>
+          <strong class="note">Note:</strong> In the React components and HTML elements must bahve closing slashes. Writing just <code class="git"><span class="token punctuation"><</span>App<span class="token punctuation">></span></code> or just <code class="git"><span class="token punctuation"><</span>img<span class="token punctuation">></spam></code>
+        </p>
+
+        <p>
+          <a class="p-link" href="https://create-react-app.dev/docs/measuring-performance/"><code class="git">reportWebVitals</code></a> are a set of useful metrics that aim to capture the user experience of a web page, but they're not in scope for this article. You can delete its import line, as well as the <code class="git">reportWebVitals();</code> line.
+        </p>
+
+        <p>
+          Your final <code class="git">index.js</code> file should look like this:
+        </p>
+
+        <div class="code-example">
+          
+          <pre>
+            <code>
+<span class="token keyword blue">import</span> <span class="token plain-text">React</span> <span class="token keyword blue">from</span> <span class="token keyword blue">from</span><span class="token keyword green">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword blue">import</span> <span class="token plain-text">ReactDOM</span> <span class="token keyword blue">from</span><span class="token ">'react-dom/client'</span><span class="token punctuation">;</span>
+<span class="token keyword blue">import</span>'./index.css'<span class="token puntuation">;</span>
+<span class="token keyword blue">import</span> <span class="token plai-text">App</span> <span class="token keyword blue">from</span> <span class="token keyword green">'./App'</span><span class="token punctuation">;</span>
+
+<span class="token keyword blue">const</span> <span class="token plain-text">root</span> <span class="token operator">=</span> <span class="token plain-text">ReactDOM</span><span class="token keyword red">.createRoot</span><span class="token punctuation">(</span><span class="token plain-text">document</span><span class="token keyword red">.getElementById</span><span class="token punctuation">(</span><span class="token keyword green">'root'</span><span class="token punctuation">))</span>
+<span class="token plain-text">root</span><span class="token keyword red">.render</span><span class="token punctuation">(</span><span class="token punctuation"><</span><span class="token keyword red">App</span> <span class="token punctuation">/></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            </code>
+          </pre>
+
+        </div>
+
+        </article>
+
+      </section>
+
+      <section class="main-section"id="Variables_and_props">
+        
+        <header class="h-title">Variables and props</header>
+
+        <article>
+
+          <p>
+          Next, we'll use a few of our JavaScript skills to get a bit more comfortable editing components and working with data in React. We'll talk about how variables are used inside JSX, and introduce props, which are a way of passing data into a component (which can then be accessed using variables).
+        </p>
+
+        <h3>Variables in JSX</h3>
+
+        <p>
+          Back in <code class="git">App.js</code>, let's focus on line 8:
+        </p>
+
+        <div class="code-example">
+
+          <pre>
+            <code>
+<span class="token punctuation"><</span><span class="token keyword green">img</span> <span class="token keyword red">src</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword green">logo</span><span class="token punctuation">}</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token punctuation">"</span><span class="token keyword green">App-logo</span><span class="token punctuation">"</span> <span class="token keyword red">alt</span><span class="token operator">=</span><span class="token punctuation">"</span> <span class="token punctuation">/></span>
+            </code>
+          </pre>
+        </div>
+
+        <p>
+          Here, the <code class="git"><span><</span>img <span>/></span></code> tag's <code class="git">src</code> attribute value is in curly braces. This is how JSX recognizes variables. React will see <code class="git">{logo}</code>, know you are referring to the logo import on line 2 of our app, then retrieve the logo file and render it.
+        </p>
+
+        <p>
+          Let's try making a variable of our own. Before the return statement of <code class="git">App</code>, add <code class="git">const subject = 'React';</code>. Your <code class="git">App</code> component should now look like this:
+        </p>
+
+        <div class="code-example">
+          <pre>
+            <code>
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token punctuation">()</span> <span class="token punctuatiom">{</span>
+  <span class="token keyword blue">const</span> <span class="token plain-text">subject</span> <span class="token operator">=</span> <span class="token keyword green">"React"</span><span class="token punctuation">;</span>
+  <span class="token keyword blue">return</span> <span class="token punctaution">(</span>
+    <span class="token punctaution"><</span><span class="token keyword green">div</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token punctuation">"<span class="token keyword green">App</span><span class="token punctaution">"></span>
+      <span class="token punctaution"><</span><span class="token keyword green">header</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token punctaution">"</span><span class="token keyword green">App-header</span><span class="token punctaution">"></span>
+        <span class="token punctaution"><</span><span class="token keyword green">img</span> <span class="token keyword red">src</span><span class="token operator">=</span><span class="token punctaution">{</span><span class="token keyword green">logo</span><span class="token punctaution">}</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token punctaution">"</span><span class="token keyword green">App-logo</span><span class="token punctaution">"</span> <span class="token keyword red">alt</span><span class="token operator">=</span><span class="token punctaution">"</span><span class="token keyword green">logo</span><span class="token punctuation">"</span> <span class="token punctaution">/></span>
+        <span class="token punctaution"><</span><span class="token keyword green">p</span><span class="token punctaution">></span>
+          <span class="token plain-text">Hello, World!</span>
+        <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token keyword green">p</span><span class="token punctaution">></span>
+      <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token keyword green">header</span><span class="token punctaution">></span>
+    <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token keyword green">div</span><span class="token punctaution">></span>
+  <span class="token punctaution">);</span>
+<span class="token punctaution">}</span>
+            </code>
+          </pre>
+        </div>
+
+        <p>
+          Change line 8 to use our <code class="git">subject</code> variable instead of the word "World", like this:
+        </p>
+
+        <div class="code-example">
+          <pre>
+            <code>
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token punctuation">()</span> <span class="token punctaution">{</span>
+  <span class="token keyword blue">const</span> <span class="token plain-text">subject</span> <span class="token operator">=</span> <span class="token keyword green">"React"</span><span class="token punctaution">;</span>
+  <span class="token keyword blue">return</span> <span class="token punctaution">(</span>
+    <span class="token punctaution"><</span><span class="token keyword green">div</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token punctaution">"</span><span class="token keyword green">App</span><span class="token ">"></span>
+      <span class="token punctaution"><</span><span class="token keyword green">header</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token punctaution">"</span><span class="token keyword green">App-header</span><span class="token punctaution">"></span>
+        <span class="token punctaution"><</span><span class="token keyword green">img</span> <span class="token keyword red">src</span><span class="token operator">=</span><span class="token punctaution">{</span><span class="token keyword green">logo</span><span class="token punctaution">}</span> <span class="token keyword red">className</span><span class="token operator">=</span><span class="token punctaution">"</span><span class="token keyword green">App-logo</span><span class="token punctaution">"</span> <span class="token keyword red">alt</span><span class="token operator">=</span><span class="token punctaution">"</span><span class="token punctaution">logo</span><span class="token punctaution">"</span> <span class="token punctaution">/></span>
+        <span class="token punctaution"><</span><span class="token keyword green">p</span><span class="token punctaution">></span><span class="token punctaution">></span>
+          <span class="token ">Hello, {subject}!</span>
+        <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token keyword green">p</span><span class="token punctaution">></span>
+      <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token keyword green">header</span><span class="token punctaution">></span>
+    <span class="token punctaution"><</span><span class="token punctaution">/</span><span class="token keyword green">div</span><span class="token punctaution">></span>
+  <span class="token punctaution">);</span>
+<span class="token punctaution">}</span>
+            </code>
+          </pre>
+        </div>
+
+        <p>When you save, your browser should display "Hello, React!" instead of "Hello, World!"</p>
+
+<p>Variables are convenient, but the one we've just set doesn't make great use of React's features. That's where props come in.</p>
+
+        <h3>Component props</h3>
+
+        <p>A prop is any data passed into a React component. React props are comparable to HTML attributes. Where HTML elements have attributes, React components have props. Props are written inside component calls, and use the same syntax as HTML attributes — <code class="git">prop="value"</code>. In React, dataflow is unidirectional: props can only be passed from Parent components down to Child components; and props are read-only.</p>
+
+<p>Let's open <code class="git">index.js</code> and give our <code class="git"><span><</span>App<span>/></span></code> call its first prop.</p>
+
+<p>Add a prop of <code class="git">subject</code> to the <code class="git"><span><</span>App<span>/></span></code> component call, with a value of <code class="git">Clarice</code>. When you are done, your code should look something like this:</p>
+
+<div class="code-example">
+  <pre>
+    <code> 
+<span class="token plain-text">root</span><span class="token keyword red">.render</span><span class="token punctaution">(<</span><span class="token keyword red">App subject</span><span class="token punctaution">=</span><span class="token punctaution">"</span><span class="token keyword green">Clarice</span><span class="token punctaution">"</span> <span class="token punctaution">/>);</span>
+    </code>
+  </pre>
+</div>
+
+<p>
+  Back in <code class="git">App.js</code>, let's revisit the App function itself, which reads like this (with the <code class="git">return</code> statement shortened for brevity):
+</p>
+
+<div class="code-example">
+  <pre>
+    <code>
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token punctaution">() {</span>
+  <span class="token keyword blue">const</span> <span class="token plain-text">subject</span> <span class="token operator">=</span> <span class="token keyword green">"React"</span><span class="token punctaution">;</span>
+  <span class="token keyword blue">return</span> <span class="token punctaution">(</span>
+    <span class="token plain-text">// return statement</span>
+  <span class="token punctaution">);</span>
+<span class="token punctaution">}</span>
+    </code>
+  </pre>
+</div>
+
+<p>
+  Change the signature of the <code class="git">App</code> function so that it accepts <code class="git">props</code> as a parameter, and delete the <code class="git">subject</code> const. Just like any other function parameter, you can put <code class="git">props</code> in a <code class="git">console.log()</code> to print it to your browser's console. Go ahead and do that before the <code class="git">return</code> statement, like so:
+</p>
+
+<div class="code-example">
+  <pre>
+    <code>
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token punctaution">(</span><span class="token plain-text">props</span><span class="token punctaution">) {</span>
+  <span class="token plain-text">console</span><span class="token keyword red">.log</span><span class="token punctaution">(</span><span class="token plain-text">props</span><span class="token punctaution">);</span>
+  <span class="token keyword blue">return</span> <span class="token punctaution">(</span>
+    <span class="token plain-text">// return statement</span>
+  <span class="token punctaution">);</span>
+<span class="token punctaution">}</span>
+    </code>
+  </pre>
+</div>
+
+<p>
+  With this change, {subject} becomes undefined, so comment out the line <code class="git">Hello, {subject}!</code> for now. Save your file and check your browser's JavaScript console. You should see something like this logged:
+</p>
+
+<div class="code-example">
+  <pre>
+    <code>
+<span class="token plain-text">Object { subject: "Clarice" }</span>
+    </code>
+  </pre>
+</div>
+
+<p>
+  The object property <code class="git">subject</code> corresponds to the <code class="git">subject</code> prop we added to our <code class="git"><span><</span>App <span>/></span></code> component call, and the string <code class="git">Clarice</code> corresponds to its value. Component props in React are always collected into objects in this fashion.
+</p>
+
+<p>Now that <code class="git">subject</code> is one of our props, let's utilize it in <code class="git">App.js</code>. Change the <code class="git">subject</code> constant so that, instead of defining it as the string <code class="git">React</code>, you are reading the value of <code class="git">props.subject</code>. Now, you can also uncomment the line <code class="git">Hello, {subject}!</code> and, if you wish, delete your <code class="git">console.log()</code>.
+</p>
+
+<div class="code-example">
+  <pre>
+    <code>
+<span class="token keyword blue">function</span> <span class="token keyword red">App</span><span class="token plain-text">(props)</span> <span class="token punctaution">{</span>
+  <span class="token keyword blue">const</span> <span class="token plain-text">subject</span> <span class="token operator">=</span> <span class="token plain-text">props.subaject;</span>
+  <span class="token keyword blue">return</span> <span class="token punctaution">(</span>
+    <span class="token plain-text">// return statement</span>
+  <span class="token punctaution">);</span>
+<span class="token punctaution">}</span>
+    </code>
+  </pre>
+</div>
+
+<p>
+  When you save, the app should now greet you with "Hello, Clarice!". If you return to <code class="git">index.js</code>, edit the value of <code class="git">subject</code>, and save, your text will change. Note that if you wanted to leave in the <code class="git">Hello</code> line throughout this change, you could also have updated the JSX variable to {props.subject}.
+</p>
+
+        </article>
+
+      </section>
+
+      <section class="main-section" id="Summary">
+        
+        <header class="h-title">Summary</header>
+
+        <article>
+
+          <p>This brings us to the end of our initial look at React, including how to install it locally, creating a starter app, and how the basics work. In the next article, we'll start building our first proper application — a todo list. Before we do that, however, let's recap some of the things we've learned.
+          </p>
+
+          <p>In React:</p>
+
+          <p>
+            <ul id="in-react">
+              <li>Components can import modules they need and must export themselves at the bottom of their files.</li>
+              <li>Component functions are named with <code class="git">PascalCase</code>.</li>
+              <li>You can read JSX variables by putting them between curly braces, like <code class="git">{so}</code>.</li>
+              <li>Some JSX attributes are different than HTML attributes so that they don't conflict with JavaScript reserved words. For example, <code class="git">class</code> in HTML translates to <code class="git">className</code> in JSX. Note that multi-word attributes are in <code class="git">camelCase</code>.</li>
+              <li>Props are written just like attributes inside component calls and are passed into components.</li>
+
+      </section>
+
+      <section class="main-section" id="Reference">
+
+        <header class="h-title">Reference</header>
+
+          <article>
+
+            <p>All the documentation in this page is taken from <a class="p-link"  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">MDN</a></p>
+          
+          </article>
+
+      </section>
+
+
+    </main>
+  
+  </body>
+
+</html>
