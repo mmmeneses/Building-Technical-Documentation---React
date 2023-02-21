@@ -131,7 +131,7 @@ html {
   }
   
   @media only screen and (max-width: 480px) {
-    html {
+    html, body {
       font-size: 14px;
     }
     
@@ -144,7 +144,13 @@ html {
   } 
   
   @media screen and (max-width: 1080px) {
-    body {
+    html, body {
       font-size: 1.5rem;
+    }
+  } 
+
+  @media screen and (min-width: 480px) {
+    html, body {
+      font-size: 1.3rem;
     }
   } 
