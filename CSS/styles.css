@@ -29,7 +29,7 @@ html {
   
   .sidebar {
     height: 100%;
-    width: 450px;
+    width: 350px;
     position: fixed;
     z-index: 1;
     top: 0px;
@@ -37,7 +37,8 @@ html {
     overflow-x: hidden;
     padding-top: 25px;
     border: solid;
-    border-color: rgba(0, 22, 22, 0.4)
+    border-color: rgba(0, 22, 22, 0.4);
+    overflow: auto;
   }
   
   .sidebar a {
