@@ -29,7 +29,7 @@ html {
   
   .sidebar {
     height: 100%;
-    width: 350px;
+    width: 320px;
     position: fixed;
     z-index: 1;
     top: 0px;
@@ -131,7 +131,7 @@ html {
     text-decoration: none;
   }
   
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 400px) {
     html, body {
       font-size: 14px;
     }
@@ -141,6 +141,7 @@ html {
       display: block;
       z-index: 0;
       content: '';
+      width: 200px;
     }
   } 
   
